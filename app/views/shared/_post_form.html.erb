@@ -6,7 +6,7 @@
         <%= form_for @post, html: {multipart: true} do |f| %>
           <div class="field ">
             <br>
-            <img id="img_prev" src="#" alt="Upload an image" />
+            <img id="img_prev" src="#" alt="Upload an image" /><span class="img_prev_fn" style="display: none"><div style="width:300px" class="container red">Required</div></span>
             <br>
             <%= f.file_field :image, onchange: "readURL(this);", class: "btn btn-success image_tag" %>
             <br>
@@ -65,23 +65,22 @@
 
         var description = $('.description')[0].value
         if (description  == "") {
-          alert(description);
           $(".description").css('background', 'red');
           $(".description").show();
+          $('.description')[0].placeholder="Please fill it"
           falsee=1;
         }
         else{
-          $(".color_me_fn").hide();
+          $(".description").css('background', '');
         }
 
         var image_tag = $('.image_tag')[0].value
         if (image_tag  == "") {
-          alert(image_tag);
-          $(".image_tag").css('btn-outline-danger');
+          $(".img_prev_fn").show();
           falsee=1;
         }
         else{
-          $(".color_me_fn").hide();
+          $(".img_prev_fn").hide();
         }
 
         if(falsee==1){
