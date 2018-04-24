@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
       current_user.following.each do |followed|
         @posts=@posts+followed.posts
       end
-      @posts = @posts.sort_by {|obj| obj.created_at}.reverse
+      @posts = @posts.sort_by {|obj| obj.updated_at}.reverse
     end
   end
 
