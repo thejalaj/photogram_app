@@ -1,12 +1,16 @@
 <% if logged_in? %>
   <div class="container">
     <aside class="span4">
+      <hr>
       <center>
-        Welcome <%= current_user.name %>
+        Hi<%= current_user.name.capitalize %>, welcome to your photogram app.
       </center>
-      <section>
+      <center>
         <%= render 'shared/post_form' %>
-      </section>
+      </center>
+      <br>
+      <center><h3> Recent post are :</h3></center>
+      <hr>
       <section>
         <%= render 'shared/post_all' %>
       </section>

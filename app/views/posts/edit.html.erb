@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if logged_in? %>
+      <center class="">
+        <%= form_for @post, html: {multipart: true} do |f| %>
+          <div class="field ">
+            <br>
+            <img id="img_prev" src="#" alt="Upload an image" />
+            <br>
+            <%= f.file_field :image, onchange: "readURL(this);", class: "btn btn-success image_tag" %>
+            <br>
+            <%= f.text_area :content, placeholder: "add description to your new post.", :size=>"30", class: "description" %>
+            <br>
+          </div>
+          <%= f.submit "Post", class: "btn btn-primary", id: "submit_form" %>
+        <% end %>
+    </center>
+    <% end%>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <br>
+  <center>
+    <h2> Re-upload the image</h2>
+    <%= image_tag @post.image.url(:medium) %>
+    <br>
+    <b>Description:<%= @post.content %></b>
+    <br>
+    <span class="edit"><b><%= link_to "Edit", edit_post_path(@post) %></b></span>
+  </center>
+</div>

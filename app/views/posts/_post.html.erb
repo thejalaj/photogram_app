@@ -1,11 +1,19 @@
-<li id="micropost<%= post.id %>">
-  <%= image_tag post.image.url(:medium)  %>
-  <br>
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-  <span class="content"><%= post.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
+<center >
+  <span id="micropost<%= post.id %>">
+    <span class="card container" style="width:450px" >
+      <%= image_tag post.image.url(:medium)  %>
+      <br>
+      <span class="content"><%= post.content %></span>
+      <span class="user">by :<b><%= link_to post.user.name, post.user %></b></span>
+      <% if post.present? %>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(post.created_at) %> ago.
+        </span>
+      <% end %>
+      <% if current_user?(post.user) %>
+        <span class="edit"><b><%= link_to "Show", post_path(post) %> | <%= link_to "Edit", edit_post_path(post) %></b></span>
+      <% end %>
+      <hr>
+    </span>
   </span>
-  <hr>
-</li>
+</center>
