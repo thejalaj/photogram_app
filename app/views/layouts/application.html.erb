@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PhotogramInterveiw</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+          <a class="navbar-brand" href="<%= root_url %>" >Photogram</a>
+
+          <div class="collapse navbar-collapse" id="basicExampleNav">
+
+              <ul class="navbar-nav mr-auto">
+                <% if logged_in? %>
+                  <%= link_to "Users", users_path, class: "nav-link active" %>
+                  <%= link_to current_user.name, current_user, class: "nav-link active"%></li>
+                  <li><%= link_to "Edit-profile", edit_user_path(current_user), class: "nav-link active" %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Log out", logout_path, method: :delete, class: "nav-link active"  %>
+                  </li>
+                <% else %>
+                    <li><%= link_to "Log in", login_path, class: "nav-link active" %></li>
+                <% end %>
+              </ul>
+              <form class="form-inline">
+                  <div class="md-form mt-0">
+                      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  </div>
+              </form>
+          </div>
+      </nav>
+    </header>
+    <br>
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <div class="card container">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+  <center >
+    <span id="micropost<%= post.id %>">
+      <span class="card container" style="width:450px" >
+        <%= image_tag post.image.url(:medium)  %>
+        <br>
+        <span class="content"><%= post.content %></span>
+        <span class="user">by :<b><%= link_to post.user.name, post.user %></b></span>
+        <% if post.present? %>
+          <span class="timestamp">
+          </span>
+        <% end %>
+      </span>
+      <hr>
+    </span>
+  </center>
+<% end %>

@@ -1,0 +1,25 @@
+<% if logged_in? %>
+  <div class="container">
+    <aside class="span4">
+      <center>
+        Welcome <%= current_user.name %>
+      </center>
+      <section>
+        <%= render 'shared/post_form' %>
+      </section>
+      <section>
+        <%= render 'shared/post_all' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h3>
+      <b>
+        "Log in up now!"
+      </b>
+    </h3>
+  </div>
+<% end %>
