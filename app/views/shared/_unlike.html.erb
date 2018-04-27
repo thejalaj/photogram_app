@@ -1,3 +1,2 @@
-<%= button_to "Un-like it", like_path(@post),
-        method: :delete,
-        params: {:post_id=> @post.id, :user_id =>current_user.id} , :class => "btn btn-danger btn-rounded btn-sm my-0", :remote => true %>
+<%= button_to "Un-like it", likes_unlike_path(:post_id=> @post.id, :user_id =>current_user.id),
+        method: :post, :class => "btn btn-danger btn-rounded btn-sm my-0", :remote => true %>

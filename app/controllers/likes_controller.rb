@@ -12,7 +12,7 @@ class LikesController < ApplicationController
     end
   end
 
-  def destroy
+  def unlike
     like_relationship = Like.where(like_params).last
     if like_relationship.destroy
       flash[:success] = "review changed created!"
