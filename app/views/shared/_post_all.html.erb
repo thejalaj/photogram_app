@@ -1,15 +1,24 @@
 <% @posts.each do |post| %>
-  <center >
-    <span id="micropost<%= post.id %>">
+  <center>
+    <% @post =post %>
+    <span id="micropost<%= @post.id %>">
       <span class="card container" style="width:400px !important" >
-        <%= image_tag post.image.url(:medium)  %>
+        <%= image_tag @post.image.url(:medium)  %>
         <br>
-        <span class="content"><%= post.content %></span>
-        <span class="user">by :<b><%= link_to post.user.name, post.user %></b></span>
+        <span class="content"><%= @post.content %></span>
+        <span class="user">by :<b><%= link_to @post.user.name, @post.user %></b></span>
+        <div id="like_form">
+          <% if @like_hash[@post.id].present? %>
+            <%= render 'shared/unlike', remote: true %>
+          <% else %>
+            <%= render 'shared/like', remote: true %>
+          <% end %>
+        </div>
         <span class="timestamp">
-          (Posted <%= time_ago_in_words(post.created_at) %> ago.)
+          (Posted <%= time_ago_in_words(@post.created_at) %> ago.)
         </span>
       </span>
+
       <hr>
     </span>
   </center>

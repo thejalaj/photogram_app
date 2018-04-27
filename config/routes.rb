@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   root to: "static_pages#home"
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
@@ -12,5 +14,6 @@ Rails.application.routes.draw do
   resources :sessions,   only: [:new, :create, :destroy]
   resources :posts,  only: [:edit, :show, :create, :destroy]
   resources :subscribes, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,4 @@
-class SubscribesController < ApplicationController
+ class SubscribesController < ApplicationController
   before_action :logged_in_user
 
   def create
