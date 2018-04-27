@@ -9,9 +9,9 @@
         <span class="user">by :<b><%= link_to @post.user.name, @post.user %></b></span>
         <div id="like_form">
           <% if @like_hash[@post.id].present? %>
-            <%= render 'shared/unlike', remote: true %>
+            <%= render 'shared/unlike' %>
           <% else %>
-            <%= render 'shared/like', remote: true %>
+            <%= render 'shared/like' %>
           <% end %>
         </div>
         <span class="timestamp">

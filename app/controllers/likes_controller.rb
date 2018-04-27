@@ -4,7 +4,9 @@ class LikesController < ApplicationController
     like_relationship = Like.new(like_params)
     if like_relationship.save
       flash[:success] = "review changed created!"
-      redirect_to root_url
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:success] = "error!"
     end
@@ -14,7 +16,9 @@ class LikesController < ApplicationController
     like_relationship = Like.where(like_params).last
     if like_relationship.destroy
       flash[:success] = "review changed created!"
-      redirect_to root_url
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:success] = "error!"
     end
