@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :chat_rooms_users
+  has_many :messages, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :active_subscribes, class_name:  "Subscribe",
                                   foreign_key: "follower_id",
@@ -28,6 +30,10 @@ class User < ApplicationRecord
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  def name
+    email.split('@')[0]
   end
 
   # Remembers a user in the database for use in persistent sessions.

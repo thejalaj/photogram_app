@@ -1,0 +1,20 @@
+<h1>Add chat room</h1>
+
+  <div class="form-group">
+    <form class="nifty_form" id="new_article" action="/chat_rooms" accept-charset="UTF-8" method="post">
+      <input type="text" name="title" id="title" />
+      <br>
+      <select class="mdb-select colorful-select dropdown-primary" multiple name="users[]">
+        <% @users.each do |opt| %>
+          <li><option type="checkbox" value=<%= opt.id %> /><%= opt.name %></li>
+        <% end %>
+      </select>
+      <input type="submit" name="commit" value="Create" data-disable-with="Create" />
+    </form>
+  </div>
+  <%= form_for @chat_room do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+
+  <%= f.submit "Add!", class: 'btn btn-primary' %>
+<% end %>

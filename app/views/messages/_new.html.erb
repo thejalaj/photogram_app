@@ -1,0 +1,10 @@
+<%= form_for @message do |f| %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.text_area :chat_room_id, value: @message.chat_room_id,  style: "display:none;" %>
+    <small class="text-muted">From 2 to 1000 characters</small>
+  </div>
+
+  <%= f.submit "Send", class: 'btn btn-primary btn-lg' %>
+<% end %>
