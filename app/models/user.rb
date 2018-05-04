@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :create_remember_token
   has_and_belongs_to_many :chat_rooms_users
   has_many :messages, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -44,11 +45,12 @@ class User < ApplicationRecord
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
   def forget
-#    update_attribute(:remember_digest, nil)
+    update_attribute(:remember_digest, nil)
   end
 
   def follow(other_user)
@@ -65,4 +67,9 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

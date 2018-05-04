@@ -13,7 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
+ .blur-filter {
+     -webkit-filter: blur(20px) !important;
+     -moz-filter: blur(20px) !important;
+     -o-filter: blur(20px) !important;
+     -ms-filter: blur(20px) !important;
+     filter: blur(20px) grayscale(20%) !important;
+ }
 
  #messages {
    max-height: 450px;
@@ -23,7 +31,6 @@
    }
  }
 
-@import "bootstrap";
 .stats {
   overflow: auto;
   margin-top: 0;
