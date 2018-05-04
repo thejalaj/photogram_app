@@ -1,12 +1,14 @@
 <div class="card">
   <div class="card-block">
     <div class="row">
-      <div class="col-md-1">
+      <% unless current_user?(message.user) %>
+      <div class="col-md-6">
       </div>
-      <div class="col-md-11">
+      <% end %>
+      <div class="col-md-6">
         <p class="card-text">
-          <%= message.body %>
-          <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
+          <div class=" <%= 'blue-text pb-2' if current_user?(message.user) %>"><%= message.body %></div>
+          <small class="text-muted">(by <%unless current_user?(message.user)%><%= message.user.name  %><%else%> you<% end %> at <%= message.timestamp %> )</small><br>
         </p>
       </div>
     </div>
