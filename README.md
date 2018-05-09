@@ -2,17 +2,17 @@ Project Title:
 Full Stack Photogram application
 
 Prerequisites:
-What things you need to install the software and how to install them
+
 
 Installation steps:
 update your bundle
 Say what the step will be
 
 Features:
-User can upload photo
-User can follow/unfollow other user
-User can like or unlike post
-User can chat with multiple user with single instance
+User can upload photo,
+User can follow/unfollow other user,
+User can like or unlike post,
+User can chat with multiple user with single instance,
 Proper use of authentication, session and cookies
 
 
