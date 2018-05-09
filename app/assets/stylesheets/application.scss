@@ -15,6 +15,22 @@
  */
  @import "bootstrap";
 
+ .header {
+   z-index:1000;
+   width: 100%;
+   position: fixed;
+ }
+
+ .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
+
  .blur-filter {
      -webkit-filter: blur(20px) !important;
      -moz-filter: blur(20px) !important;
@@ -26,9 +42,6 @@
  #messages {
    max-height: 450px;
    overflow-y: auto;
-   .avatar {
-     margin: 0.5rem;
-   }
  }
 
 .stats {

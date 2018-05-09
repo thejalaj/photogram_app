@@ -1,12 +1,12 @@
 <button class="btn btn-primary relative waves-light" id="myBtn">Upload a new post</button>
 <div id="myModal" class="modal">
-  <div class="modal-content container elegant-color white-text card-cascade wider card modal-dialog cascading-modal" style="width:550px" style="height:700px !important">
+  <div class="modal-content container elegant-color white-text card-cascade wider card modal-dialog cascading-modal modal-id">
     <% if logged_in? %>
       <center class="">
         <%= form_for @post, html: {multipart: true} do |f| %>
           <div class="field ">
             <br>
-            <img id="img_prev" src="#" alt="Upload an image" /><span class="img_prev_fn" style="display: none"><div style="width:300px" class="container red">Required</div></span>
+            <img style="display: none" id="img_prev" src="#" alt="Upload an image" /><span class="img_prev_fn" style="display: none"><div style="width:300px" class="container red">Required</div></span>
             <br>
             <%= f.file_field :image, onchange: "readURL(this);", class: "btn btn-success image_tag" %>
             <br>
@@ -29,6 +29,7 @@
       var reader = new FileReader();
 
       reader.onload = function (e) {
+        $('#img_prev').show()
         $('#img_prev')
           .attr('src', e.target.result)
           .width(430)
@@ -38,19 +39,16 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
- </script>
 
-
-<script>
   var modal = document.getElementById('myModal');
   var btn = document.getElementById("myBtn");
   var span = document.getElementsByClassName("close")[0];
   btn.onclick = function() {
-      debugger
       $('#post-all').addClass("blur-filter")
       modal.style.display = "block";
   }
   span.onclick = function() {
+      $('#post-all').removeClass("blur-filter")
       modal.style.display = "none";
   }
   window.onclick = function(event) {
@@ -58,9 +56,7 @@
           modal.style.display = "none";
       }
   }
-</script>
 
-<script>
   $(document).ready(function(){
       $("#submit_form").click(function(){
         var falsee=0;

@@ -1,24 +1,30 @@
-# README
+Project Title:
+Full Stack Photogram application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prerequisites:
+What things you need to install the software and how to install them
 
-Things you may want to cover:
+Installation steps:
+update your bundle
+Say what the step will be
 
-* Ruby version
+Features:
+User can upload photo
+User can follow/unfollow other user
+User can like or unlike post
+User can chat with multiple user with single instance
+Proper use of authentication, session and cookies
 
-* System dependencies
 
-* Configuration
+Built With
+Ruby on rails - The web framework used
+ActionCable - Websockets for multiple user chat rooms
 
-* Database creation
+Versioning
+rails- 4.2.0(or above)
+ruby 2.4.0(or above)
 
-* Database initialization
+Authors
+Jalaj Chandnani
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
