@@ -5,6 +5,7 @@
       <b>Title:</b><br>
       <input class="form-control" type="text" name="title" id="title" />
       <br>
+      <div class="card red">press and hold ctrl while selecting multiple user</div>
       <select class="mdb-select colorful-select dropdown-primary" multiple name="users[]">
         <% @users.each do |opt| %>
           <li><option type="checkbox" value=<%= opt.id %> /><%= opt.name %></li>
